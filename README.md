@@ -1,3 +1,5 @@
+[![npm version](https://img.shields.io/npm/v/x402-base-verify.svg)](https://www.npmjs.com/package/x402-base-verify) [![npm downloads](https://img.shields.io/npm/dm/x402-base-verify.svg)](https://www.npmjs.com/package/x402-base-verify) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
 # x402-base-verify
 
 On-chain USDC payment verification for Base mainnet. No API keys. No external services. Zero dependencies.
