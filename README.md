@@ -2,7 +2,7 @@
 
 # x402-base-verify
 
-On-chain USDC payment verification for Base mainnet. No API keys. No external services. Zero dependencies.
+USDC payment verification on Base mainnet. No API keys. No external services. Zero dependencies.
 
 Built from the payment infrastructure powering [zambo.dev](https://zambo.dev) Day Pass — verifying live USDC transactions in production since 2026.
 
@@ -36,7 +36,7 @@ import { verifyUsdcPayment } from "x402-base-verify";
 const result = await verifyUsdcPayment({
   txHash:        "0xabc123...",
   toAddress:     "0xYourWalletAddress",
-  minAmountUsdc: 1.49,
+  minAmountUsdc: 0.99,
 });
 
 if (result.valid) {
@@ -44,7 +44,7 @@ if (result.valid) {
   // grant access
 } else {
   console.log(`Payment invalid: ${result.reason}`);
-  // e.g. "insufficient_usdc: sent 1.000000, need 1.49"
+  // e.g. "insufficient_usdc: sent 1.000000, need 0.99"
   // e.g. "transaction_not_found_on_base"
   // e.g. "no_usdc_transfer_to_target_wallet_in_tx"
 }
@@ -61,9 +61,9 @@ router.post("/api/premium-feature", async (req, res) => {
   if (!txHash) {
     const { status, body } = buildPaymentRequired({
       toAddress:  "0xYourWalletAddress",
-      priceUsdc:  1.49,
+      priceUsdc:  0.99,
       product:    "Premium Feature Access",
-      tagline:    "$1.49 USDC. Instant. No account needed.",
+      tagline:    "$0.99 USDC. Instant. No account needed.",
     });
     res.status(status).json(body);
     return;
@@ -72,7 +72,7 @@ router.post("/api/premium-feature", async (req, res) => {
   const payment = await verifyUsdcPayment({
     txHash,
     toAddress:     "0xYourWalletAddress",
-    minAmountUsdc: 1.49,
+    minAmountUsdc: 0.99,
   });
 
   if (!payment.valid) {
