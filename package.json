@@ -1,7 +1,7 @@
 {
   "name": "x402-base-verify",
   "version": "1.0.0",
-  "description": "On-chain USDC payment verification for Base mainnet. The verification half of the x402 micropayment protocol. No API keys, no external services, zero dependencies.",
+  "description": "USDC payment verification on Base mainnet. The verification half of the x402 micropayment protocol. No API keys, no external services, zero dependencies.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
